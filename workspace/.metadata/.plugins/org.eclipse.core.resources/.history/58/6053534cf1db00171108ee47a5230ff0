@@ -1,0 +1,121 @@
+
+package com.internousdev.ecsite.action;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.ecsite.dto.BuyItemDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemAction extends ActionSupport implements SessionAware {
+
+
+	private List<BuyItemDTO> buyItemDTOList;
+	/**
+	 * アイテム購入個数
+	 */
+	private List<String> count;
+
+	/**
+	 * 支払い方法
+	 */
+	private List<String> pay;
+	private List<String> payment;
+
+	/**
+	 * アイテム情報を格納
+	 */
+	public Map<String, Object>  session;
+
+	/**
+	 * 商品情報取得メソッド
+	 *
+	 * @author internous
+	 */
+	@SuppressWarnings("unchecked")
+	public String execute() {
+		String result = SUCCESS;
+
+		// LoginActionで保管したbuyItemDTOListの値を使いたい。
+		// "buyItemDTOList"という鍵にbuyItemDTOListが保管されているから取得している。
+
+		 //= (List<BuyItemDTO>) session.get("buyItemDTOList");
+		session.put("count", count);
+		buyItemDTOList= (List<BuyItemDTO>) session.get("buyItemDTOList");
+		/* ここから繰り返したい */
+		/**
+		 * List型
+		 * 値取得 : .get(添え字);
+		 * サイズ取得 : .size();
+		 */
+		/** ここから合計金額を計算する処理 */
+		for(int i=0; i<count.size(); i++) {
+
+			//buyItemDTOList= (List<BuyItemDTO>) session.get("buyItemDTOList");
+			int intCount = Integer.parseInt(count.get(i));
+			int intPrice = Integer.parseInt(buyItemDTOList.get(i).getItemPrice());
+			/**
+			 * 引数がString型のため、toStringでString型に変換する。->int型で保管したいのでparseIntでintに変換している。
+			 */
+			if(intCount != 0){
+			session.put("total_price", intCount * intPrice);
+			/** ここまで合計 */
+
+			session.put("itemName", buyItemDTOList.get(i).getItemName());
+			/** ここから支払い方法を選択する処理 */
+
+
+			if(pay.get(i).equals("1")) {
+
+				payment.add("現金払い");
+
+			} else {
+
+				payment.add("クレジットカード");
+			}
+			/** ここまで支払い選択処理 */
+
+		}
+		/* ここまで繰り返す */
+		}
+		return result;
+
+	}
+
+	public List<String> getCount() {
+		return count;
+	}
+
+	public void setCount(List<String> count) {
+		this.count = count;
+	}
+
+	public List<String> getPay() {
+		return pay;
+	}
+
+	public void setPay(List<String> pay) {
+		this.pay = pay;
+	}
+
+	public List<String> getPayment(){
+		return payment;
+	}
+	public void setPayment(List<String> payment){
+		this.payment=payment;
+	}
+
+	public List<BuyItemDTO> getBuyItemDTOList(){
+		return buyItemDTOList;
+	}
+	public void setBuyItemDTOList(List<BuyItemDTO> buyItemDTOList){
+		this.buyItemDTOList=buyItemDTOList;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+}

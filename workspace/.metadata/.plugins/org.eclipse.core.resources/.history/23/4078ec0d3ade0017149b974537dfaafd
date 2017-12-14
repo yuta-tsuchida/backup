@@ -1,0 +1,161 @@
+
+package com.internousdev.ecsite.action;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.ecsite.dto.BuyItemDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemAction extends ActionSupport implements SessionAware {
+
+
+	private List<BuyItemDTO> buyItemDTOList;
+	/**
+	 * アイテム名
+	 */
+//	private List<String> itemName;
+
+	/**
+	 * アイテム価格
+	 */
+//	private List<String> itemPrice;
+
+	/**
+	 * アイテム購入個数
+	 */
+	private List<String> count;
+
+	/**
+	 * 支払い方法
+	 */
+	private List<String> pay;
+
+
+	/**
+	 * アイテム情報を格納
+	 */
+	public Map<String, Object>  session;
+	private BuyItemDTO buyItemDTO=new BuyItemDTO();
+
+	/**
+	 * 商品情報取得メソッド
+	 *
+	 * @author internous
+	 */
+	@SuppressWarnings("unchecked")
+	public String execute() {
+		String result = SUCCESS;
+
+
+		// LoginActionで保管したbuyItemDTOListの値を使いたい。
+		// "buyItemDTOList"という鍵にbuyItemDTOListが保管されているから取得している。
+
+		 //= (List<BuyItemDTO>) session.get("buyItemDTOList");
+		session.put("count", count);
+		buyItemDTOList= (List<BuyItemDTO>) session.get("buyItemDTOList");
+
+		/* ここから繰り返したい */
+		/**
+		 * List型
+		 * 値取得 : .get(添え字);
+		 * サイズ取得 : .size();
+		 */
+		/** ここから合計金額を計算する処理 */
+		for(int i=0; i<count.size(); i++) {
+
+			buyItemDTOList= (List<BuyItemDTO>) session.get("buyItemDTOList");
+
+			String buyItemName=buyItemDTOList.get(i).getItemName();
+			session.put("itemName",buyItemName);
+
+			String buyItemPrice=buyItemDTOList.get(i).getItemPrice();
+			session.put("itemPrice",buyItemPrice);
+
+			int intCount = Integer.parseInt(count.get(i));
+			int intPrice = Integer.parseInt(buyItemDTOList.get(i).getItemPrice());
+			/**
+			 * 引数がString型のため、toStringでString型に変換する。->int型で保管したいのでparseIntでintに変換している。
+			 */
+
+			buyItemDTOList.clear();
+
+			if(intCount != 0){
+
+								//session.put("total_price", intCount * intPrice);
+			buyItemDTO.setItemName(session.get("itemName").toString());
+			buyItemDTO.setItemPrice(session.get("itemPrice").toString());
+			buyItemDTO.setCount(intCount);
+			buyItemDTO.setTotal_price(intCount * intPrice);
+
+			/** ここまで合計 */
+
+								//session.put("itemName", buyItemDTOList.get(i).getItemName());
+			/** ここから支払い方法を選択する処理 */
+
+			String payment;
+			if(pay.get(i).equals("1")) {
+
+				payment="現金払い";
+				session.put("pay",payment);
+				buyItemDTO.setPay(payment);
+
+			} else {
+				payment="クレジットカード";
+				session.put("pay",payment);
+				buyItemDTO.setPay(payment);
+			}
+			/** ここまで支払い選択処理 */
+			buyItemDTOList.add(buyItemDTO);
+		}
+		/* ここまで繰り返す */
+		}
+		return result;
+
+	}
+
+	public List<String> getCount() {
+		return count;
+	}
+
+	public void setCount(List<String> count) {
+		this.count = count;
+	}
+
+	public List<String> getPay() {
+		return pay;
+	}
+
+	public void setPay(List<String> pay) {
+		this.pay = pay;
+	}
+
+//	public List<String> getItemName(){
+//		return itemName;
+//	}
+//	public void setItemName(List<String> itemName){
+//		this.itemName=itemName;
+//	}
+//	public List<String> getItemPrice(){
+//		return itemPrice;
+//	}
+//	public void setItemPrice(List<String> itemPrice){
+//this.itemPrice=itemPrice;
+//	}
+
+
+
+	public List<BuyItemDTO> getBuyItemDTOList(){
+		return buyItemDTOList;
+	}
+	public void setBuyItemDTOList(List<BuyItemDTO> buyItemDTOList){
+		this.buyItemDTOList=buyItemDTOList;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+}

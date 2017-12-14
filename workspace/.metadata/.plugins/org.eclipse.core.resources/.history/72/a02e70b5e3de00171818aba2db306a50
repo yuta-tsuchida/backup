@@ -1,0 +1,68 @@
+package com.internousdev.ecsite.action;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.ecsite.dao.BuyItemCompleteDAO;
+import com.internousdev.ecsite.dto.BuyItemDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
+
+	public Map<String,Object> session;
+
+	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
+
+	private List<BuyItemDTO> buyItemDTOList;
+
+
+
+	/**
+	 * 商品購入情報登録メソッド
+	 *
+	 * @author internous
+	 */
+	@SuppressWarnings("unchecked")
+	public String execute() throws SQLException {
+
+		buyItemDTOList=(List<BuyItemDTO>) session.get("buyItemDTOList");
+
+		for(int i=0; i<buyItemDTOList.size(); i++){
+
+			int a=buyItemDTOList.get(i).id;
+			String id=String.valueOf(a);
+
+			int b=buyItemDTOList.get(i).total_price;
+			String total_price=String.valueOf(b);
+
+			int c=buyItemDTOList.get(i).count;
+			String count=String.valueOf(c);
+
+		buyItemCompleteDAO.buyItemeInfo(
+				id,
+				session.get("login_user_id").toString(),
+				total_price,
+				count,
+				buyItemDTOList.get(i).pay);
+		}
+		String result = SUCCESS;
+		return result;
+	}
+
+
+
+	public List<BuyItemDTO> getBuyItemDTOList(){
+		return buyItemDTOList;
+	}
+	public void setBuyItemDTOList(List<BuyItemDTO> buyItemDTOList){
+		this.buyItemDTOList=buyItemDTOList;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+}

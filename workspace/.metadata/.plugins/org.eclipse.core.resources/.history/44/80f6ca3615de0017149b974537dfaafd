@@ -1,0 +1,45 @@
+package com.internousdev.ecsite.dto;
+
+import java.util.List;
+
+public class BuyItemDTO {
+
+	public int id;
+
+	public String itemName;
+
+	public String itemPrice;
+
+	public List<String> count;
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public String getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(String itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<String> getCount(){
+		return count;
+	}
+	public void setCount(List<String> count){
+		this.count=count;
+	}
+}
