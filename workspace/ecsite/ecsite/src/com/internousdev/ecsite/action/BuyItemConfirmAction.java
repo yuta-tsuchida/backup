@@ -27,7 +27,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	public String execute() throws SQLException {
 
 		buyItemDTOList=(ArrayList<BuyItemDTO>) session.get("list");
-		System.out.println(buyItemDTOList.size());
+
 
 
 

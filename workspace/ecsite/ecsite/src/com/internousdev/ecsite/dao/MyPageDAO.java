@@ -44,7 +44,7 @@ public class MyPageDAO {
 				dto.setInsert_date(resultSet.getString("insert_date"));
 				myPageDTO.add(dto);
 			}
-			System.out.println(myPageDTO.size());
+
 
 		} catch(Exception e) {
 			e.printStackTrace();

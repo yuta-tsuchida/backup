@@ -18,6 +18,8 @@ public class BuyItemDTO {
 
 	public int item_stock;
 
+	public int total_count;
+
 	public String getItemName() {
 		return itemName;
 	}
@@ -69,5 +71,12 @@ public class BuyItemDTO {
 	}
 	public void setItem_stock(int item_stock){
 		this.item_stock=item_stock;
+	}
+
+	public int getTotal_count(){
+		return total_count;
+	}
+	public void setTotal_count(int total_count){
+		this.total_count=total_count;
 	}
 }

@@ -65,10 +65,11 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 			myPageList= myPageDAO.getMyPageUserInfo(user_master_id);
 
+
 			}
 
 
-			System.out.println(myPageList.size());
+
 			Iterator<MyPageDTO> iterator = myPageList.iterator();
 			if (!(iterator.hasNext())) {
 				myPageList = null;
@@ -90,7 +91,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	public void delete() throws SQLException {
 		@SuppressWarnings("unchecked")
 		List<BuyItemDTO> buyItemDTOList=(List<BuyItemDTO>) session.get("list");
-		System.out.println(buyItemDTOList.size());
+
 		for(int i=0; i<buyItemDTOList.size(); i++){
 		int a=buyItemDTOList.get(i).getId();
 		String item_transaction_id = Integer.toString(a);

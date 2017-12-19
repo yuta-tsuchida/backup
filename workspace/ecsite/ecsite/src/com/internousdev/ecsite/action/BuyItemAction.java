@@ -59,6 +59,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		 */
 		/** ここから合計金額を計算する処理 */
 
+
 		for(int i=0; i<count.size(); i++) {
 			BuyItemDTO buyItemDTO=new BuyItemDTO();
 
@@ -115,6 +116,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		/* ここまで繰り返す */
 			session.put("list",buyItemDTOList);
 		}
+
 		return result;
 
 	}

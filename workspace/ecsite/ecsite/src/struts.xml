@@ -17,11 +17,13 @@
 		<!-- HomeAction -->
 		<action name="HomeAction" class="com.internousdev.ecsite.action.HomeAction" method="execute">
 			<result name="login">login.jsp</result>
+			<result name="master">master.jsp</result>
 			<result name="success">buyItem.jsp</result>
 		</action>
 
 		<!-- LoginAction -->
 		<action name="LoginAction" class="com.internousdev.ecsite.action.LoginAction" method="execute">
+			<result name="master">master.jsp</result>
 			<result name="success">buyItem.jsp</result>
 			<result name="error">login.jsp</result>
 		</action>
@@ -69,6 +71,16 @@
 		<!-- LogoutAction -->
 		<action name="LogoutAction" class="com.internousdev.ecsite.action.LogoutAction" method="execute">
 			<result name="success">login.jsp</result>
+		</action>
+
+		<!-- MasterAction -->
+		<action name="MasterAction" class="com.internousdev.ecsite.action.MasterAction" method="execute">
+			<result name="success">masterConfirm.jsp</result>
+		</action>
+
+		<!-- MasterConfirmAction -->
+		<action name="MasterConfirmAction" class="com.internousdev.ecsite.action.MasterConfirmAction" method="execute">
+			<result name="success">masterComplete.jsp</result>
 		</action>
 
 	</package>

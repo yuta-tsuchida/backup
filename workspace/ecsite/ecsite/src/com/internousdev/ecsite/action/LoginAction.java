@@ -68,7 +68,15 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		session.put("loginUser", loginDTO);
 
+
 		// ログイン情報を比較
+		if(((LoginDTO) session.get("loginUser")).getLoginMaster()){
+			buyItemDTOList=buyItemDAO.getBuyItemInfo();
+			session.put("buyItemDTOList", buyItemDTOList);
+			session.put("masterId",loginUserId);
+			result = "master";
+			return result;
+		}
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 
@@ -80,8 +88,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.put("buyItemDTOList", buyItemDTOList);
 			session.put("id", buyItemDTO.getId());
 			session.put("login_user_id",loginDTO.getLoginId());
+
+
 			return result;
 		}
+
+
 
 		return result;
 	}

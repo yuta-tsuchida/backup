@@ -30,6 +30,13 @@ public class HomeAction extends ActionSupport implements SessionAware {
 
 			result = SUCCESS;
 		}
+
+		if(session.containsKey("masterId")){
+			buyItemDTOList=buyItemDAO.getBuyItemInfo();
+			result = "master";
+
+		}
+
 		return result;
 	}
 
