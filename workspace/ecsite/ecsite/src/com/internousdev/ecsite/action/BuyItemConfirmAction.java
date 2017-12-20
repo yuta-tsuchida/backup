@@ -50,6 +50,11 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 			int item_stock= a - count;
 			System.out.println(item_stock);
 
+			if(item_stock<0){
+				String result=ERROR;
+				return result;
+			}
+
 
 		BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 		buyItemCompleteDAO.buyItemeInfo(

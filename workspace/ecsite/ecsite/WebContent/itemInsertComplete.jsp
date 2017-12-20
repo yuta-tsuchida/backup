@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta charset="utf-8">
-<title>管理画面</title>
+<title>ItemInsertConplete画面</title>
 <style type="text/css">
 	/* ========TAG LAYOUT======== */
 		body {
@@ -46,7 +46,7 @@
 
 		#main {
 		   width: 100%;
-		   height: 1100px;
+		   height: 500px;
 		   text-align: center;
 		}
 
@@ -66,59 +66,27 @@
 
 	<div id="main">
 		<div id="top">
-			<p>master</p>
+			<p>ItemInsertComplete</p>
 		</div>
 
 		<div>
-			<s:form action="MasterAction">
-				<table>
-					<s:iterator value="buyItemDTOList">
-						<tr>
-							<td>
-								<span>商品名</span>
-							</td>
-							<td>
-								<s:property value="itemName"/>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<span>在庫</span>
-							</td>
-							<td>
-								<s:property value="item_stock"/>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<span>商品在庫追加</span>
-							</td>
-							<td>
-								<select name="count">
-									<option value="0" selected="selected">0</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-							</td>
-						</tr>
-					</s:iterator>
-						<tr>
-							<td>
-								<s:submit value="追加"/>
-							</td>
-						</tr>
-				</table>
+			<p>以下の商品を追加しました。</p>
+			<s:form>
+				<tr>
+					<td>商品名</td>
+					<td><s:property value="session.itemName"/></td>
+				</tr>
+				<tr>
+					<td>値段</td>
+					<td><s:property value="session.itemPrice"/></td>
+				</tr>
+				<tr>
+					<td>在庫</td>
+					<td><s:property value="session.itemStock"/></td>
+				</tr>
 			</s:form>
 			<div>
-				<p><a href='<s:url action="GoInsertAction"/>'>新商品追加</a></p>
-			</div>
-			<div>
-				<p><a href='<s:url action="GoHomeAction" />'>home</a></p>
+				<a href='<s:url action="GoHomeAction"/>'>Home</a>
 			</div>
 		</div>
 	</div>

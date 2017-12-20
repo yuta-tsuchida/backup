@@ -27,12 +27,14 @@ public class HomeAction extends ActionSupport implements SessionAware {
 			// アイテム情報を取得
 
 			buyItemDTOList=buyItemDAO.getBuyItemInfo();
+			session.put("buyItemDTOList", buyItemDTOList);
 
 			result = SUCCESS;
 		}
 
 		if(session.containsKey("masterId")){
 			buyItemDTOList=buyItemDAO.getBuyItemInfo();
+			session.put("buyItemDTOList", buyItemDTOList);
 			result = "master";
 
 		}

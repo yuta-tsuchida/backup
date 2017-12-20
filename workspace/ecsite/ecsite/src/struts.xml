@@ -54,6 +54,7 @@
 		<!-- BuyItemConfirmAction -->
 		<action name="BuyItemConfirmAction" class="com.internousdev.ecsite.action.BuyItemConfirmAction" method="execute">
 			<result name="success">buyItemComplete.jsp</result>
+			<result name="error">buyItemCompleteError.jsp</result>
 			<result name="back">buyItem.jsp</result>
 		</action>
 
@@ -81,6 +82,16 @@
 		<!-- MasterConfirmAction -->
 		<action name="MasterConfirmAction" class="com.internousdev.ecsite.action.MasterConfirmAction" method="execute">
 			<result name="success">masterComplete.jsp</result>
+		</action>
+
+		<!-- GoInsertAction -->
+		<action name="GoInsertAction" class="com.internousdev.ecsite.action.GoInsertAction" method="execute">
+			<result name="success">itemInsert.jsp</result>
+		</action>
+
+		<!-- ItemInsertAction -->
+		<action name="ItemInsertAction" class="com.internousdev.ecsite.action.ItemInsertAction" method="execute">
+			<result name="success">itemInsertComplete.jsp</result>
 		</action>
 
 	</package>

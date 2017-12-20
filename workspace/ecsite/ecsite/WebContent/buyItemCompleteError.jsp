@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +12,8 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>BuyItemComplete画面</title>
-	<style type="text/css">
+<title>error</title>
+<style type="text/css">
 	/* ========TAG LAYOUT======== */
 		body {
 		   margin:0;
@@ -61,26 +60,26 @@
 </head>
 <body>
 	<div id="header">
-	 	<div id="pr">
+		<div id="pr">
 		</div>
 	</div>
+
 	<div id="main">
 		<div id="top">
-			<p>BuyItemComplete</p>
+			<p>BuyItemCompleteError</p>
 		</div>
 		<div>
-			<p>購入手続きが完了致しました。</p>
-			<div>
-				<a href='<s:url action="MyPageAction" />'>マイページ</a><span>から購入履歴の確認が可能です。</span>
-				<p>お買い物を続ける場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
-				<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
-			</div>
+			<p>購入に失敗しました。</p>
+		</div>
+		<div>
+			<p>Homeへ戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
+			<p>お買い物を続ける場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
 		</div>
 	</div>
+
 	<div id="footer">
 		<div id="pr">
 		</div>
 	</div>
 </body>
 </html>
-

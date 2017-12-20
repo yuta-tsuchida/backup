@@ -66,23 +66,23 @@
 
 	<div id="main">
 		<div id="top">
-			<p>BuyItemComplete</p>
+			<p>MasterComplete</p>
 		</div>
 		<div>
 			<p>以下の商品が追加されました。</p>
 			<div>
 				<s:form>
-					<s:iterator value="myPageDTOList">
-
+					<s:iterator value="buyItemDTOList">
+					<s:if test="count != 0">
 							<tr>
 								<td>商品名</td>
 								<td><s:property value="itemName"/></td>
 							</tr>
 							<tr>
-								<td>在庫</td>
-								<td><s:property value="totalCount"/></td>
+								<td>new在庫</td>
+								<td><s:property value="total_count"/></td>
 							</tr>
-
+					</s:if>
 					</s:iterator>
 				</s:form>
 			</div>
