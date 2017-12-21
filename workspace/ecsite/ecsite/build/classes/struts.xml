@@ -94,5 +94,20 @@
 			<result name="success">itemInsertComplete.jsp</result>
 		</action>
 
+		<!-- GoItemUpdateAction -->
+		<action name="GoItemUpdateAction" class="com.internousdev.ecsite.action.GoItemUpdateAction" method="execute">
+			<result name="success">itemUpdate.jsp</result>
+		</action>
+
+		<!-- ItemUpdateAction -->
+		<action name="ItemUpdateAction" class="com.internousdev.ecsite.action.ItemUpdateAction" method="execute">
+			<result name="success">itemUpdateEnter.jsp</result>
+		</action>
+
+		<!-- ItemUpdateEnterAction -->
+		<action name="ItemUpdateEnterAction" class="com.internousdev.ecsite.action.ItemUpdateEnterAction" method="execute">
+			<result name="success">itemUpdateComplete.jsp</result>
+		</action>
+
 	</package>
 </struts>
