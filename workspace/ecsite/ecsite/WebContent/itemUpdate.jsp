@@ -85,6 +85,9 @@
 					<td><s:submit value="選択"/></td>
 				</tr>
 			</s:form>
+			<div>
+				<a href='<s:url action="HomeAction"/>'>戻る</a>
+			</div>
 		</div>
 	</div>
 

@@ -89,6 +89,19 @@
 						<s:property value="itemPrice" /><span>円</span>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<span>在庫</span>
+					</td>
+					<td>
+					<s:if test="item_stock>0">
+						<s:property value="item_stock"/>
+					</s:if>
+					<s:else>
+						<span>品切れ</span>
+					</s:else>
+					</td>
+				</tr>
 
 				<tr>
 					<td>
@@ -109,19 +122,6 @@
 						<select name="count">
 							<option value="0" selected="selected">0</option>
 						</select>
-					</s:else>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>在庫</span>
-					</td>
-					<td>
-					<s:if test="item_stock>0">
-						<s:property value="item_stock"/>
-					</s:if>
-					<s:else>
-						<span>品切れ</span>
 					</s:else>
 					</td>
 				</tr>

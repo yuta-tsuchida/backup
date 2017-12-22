@@ -79,8 +79,8 @@
 				</tr>
 				<tr>
 					<td><s:property value="session.item_name"/></td>
-					<td><s:property value="session.item_price"/></td>
-					<td><s:property value="session.item_stock"/></td>
+					<td><s:property value="session.item_price"/><span>円</span></td>
+					<td><s:property value="session.item_stock"/><span>個</span></td>
 					<td><s:property value="session.update_date"/></td>
 				</tr>
 			</table>

@@ -12,7 +12,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta charset="utf-8">
-<title>管理画面</title>
+<title>ItemDeleteComplete画面</title>
 <style type="text/css">
 	/* ========TAG LAYOUT======== */
 		body {
@@ -66,63 +66,20 @@
 
 	<div id="main">
 		<div id="top">
-			<p>master</p>
+			<p>ItemDeleteComplete</p>
 		</div>
 
 		<div>
-			<div>
-				<a href='<s:url action="GoInsertAction"/>'>新商品追加</a>
-				<a href='<s:url action="GoItemUpdateAction"/>'>商品情報更新</a>
-				<a href='<s:url action="GoItemDeleteAction"/>'>商品削除</a>
-			</div>
-			<s:form action="MasterAction">
-				<table>
-					<s:iterator value="buyItemDTOList">
-						<tr>
-							<td>
-								<span>商品名</span>
-							</td>
-							<td>
-								<s:property value="itemName"/>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<span>在庫</span>
-							</td>
-							<td>
-								<s:property value="item_stock"/>
-							</td>
-						</tr>
-
-						<tr>
-							<td>
-								<span>商品在庫追加</span>
-							</td>
-							<td>
-								<select name="count">
-									<option value="0" selected="selected">0</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-							</td>
-						</tr>
-					</s:iterator>
-						<tr>
-							<td>
-								<s:submit value="追加"/>
-							</td>
-						</tr>
-				</table>
-			</s:form>
-
-			<div>
-				<p><a href='<s:url action="GoHomeAction" />'>home</a></p>
-			</div>
+			<s:property value="session.idListSize"/><span>件削除されました。</span>
+		</div>
+		<div>
+			<a href='<s:url action="GoHomeAction"/>'>Home</a>
+		</div>
+		<div>
+			<a href='<s:url action="HomeAction"/>'>管理画面へ</a>
+		</div>
+		<div>
+			<a href='<s:url action="GoItemDeleteAction"/>'>戻る</a>
 		</div>
 	</div>
 

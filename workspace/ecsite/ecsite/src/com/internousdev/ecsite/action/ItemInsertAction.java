@@ -7,6 +7,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ecsite.dao.ItemInsertDAO;
 import com.internousdev.ecsite.dto.ItemInsertDTO;
+import com.internousdev.ecsite.util.DateUtil;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemInsertAction extends ActionSupport implements SessionAware {
@@ -19,6 +20,8 @@ public class ItemInsertAction extends ActionSupport implements SessionAware {
 
 	public Map<String,Object> session;
 
+	private DateUtil dateUtil=new DateUtil();
+
 	private ItemInsertDAO dao=new ItemInsertDAO();
 	private ItemInsertDTO dto=new ItemInsertDTO();
 
@@ -29,6 +32,7 @@ public class ItemInsertAction extends ActionSupport implements SessionAware {
 		session.put("itemName", itemName);
 		session.put("itemPrice", itemPrice);
 		session.put("itemStock", itemStock);
+		session.put("insertDate", dateUtil.getDate());
 
 		String result=SUCCESS;
 		return result;

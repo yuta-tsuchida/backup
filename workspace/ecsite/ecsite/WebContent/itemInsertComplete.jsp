@@ -71,20 +71,20 @@
 
 		<div>
 			<p>以下の商品を追加しました。</p>
-			<s:form>
+			<table border="1">
 				<tr>
-					<td>商品名</td>
+					<th>商品名</th>
+					<th>値段</th>
+					<th>在庫</th>
+					<th>更新日</th>
+				</tr>
+				<tr>
 					<td><s:property value="session.itemName"/></td>
+					<td><s:property value="session.itemPrice"/><span>円</span></td>
+					<td><s:property value="session.itemStock"/><span>個</span></td>
+					<td><s:property value="session.insertDate"/></td>
 				</tr>
-				<tr>
-					<td>値段</td>
-					<td><s:property value="session.itemPrice"/></td>
-				</tr>
-				<tr>
-					<td>在庫</td>
-					<td><s:property value="session.itemStock"/></td>
-				</tr>
-			</s:form>
+			</table>
 			<div>
 				<a href='<s:url action="GoHomeAction"/>'>Home</a>
 			</div>

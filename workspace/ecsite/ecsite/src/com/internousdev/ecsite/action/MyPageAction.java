@@ -93,12 +93,11 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		List<BuyItemDTO> buyItemDTOList=(List<BuyItemDTO>) session.get("list");
 
 		for(int i=0; i<buyItemDTOList.size(); i++){
-		int a=buyItemDTOList.get(i).getId();
-		String item_transaction_id = Integer.toString(a);
+
 		String user_master_id = session.get("login_user_id").toString();
 
 		MyPageDAO myPageDAO = new MyPageDAO();
-		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id, user_master_id);
+		int res = myPageDAO.buyItemHistoryDelete(user_master_id);
 
 		if(res > 0) {
 
