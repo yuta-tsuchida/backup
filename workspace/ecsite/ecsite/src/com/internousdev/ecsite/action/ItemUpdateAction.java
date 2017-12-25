@@ -3,10 +3,12 @@ package com.internousdev.ecsite.action;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.ecsite.dao.ItemUpdateDAO;
 import com.internousdev.ecsite.dto.BuyItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,21 +18,25 @@ public class ItemUpdateAction extends ActionSupport implements SessionAware {
 
 	private int id;
 
-	private ArrayList<BuyItemDTO> list=new ArrayList<>();
 
-	@SuppressWarnings("unchecked")
+
+	private List<BuyItemDTO> list=new ArrayList<>();
+
+	private ItemUpdateDAO dao=new ItemUpdateDAO();
+
 	public String execute(){
 
-		list=(ArrayList<BuyItemDTO>) session.get("buyItemDTOList");
-		String itemName=list.get(id - 1).getItemName();
-		String itemPrice=list.get(id - 1).getItemPrice();
-		int itemStock=list.get(id - 1).getItem_stock();
 
-		session.put("itemName", itemName);
-		session.put("itemPrice", itemPrice);
-		session.put("itemStock", itemStock);
+		list=dao.itemUpdateInfo(id);
 
-		System.out.println(itemName);
+		String selectName=list.get(0).getItemName();
+		String selectPrice=list.get(0).getItemPrice();
+		int selectStock=list.get(0).getItem_stock();
+
+		session.put("itemName", selectName);
+		session.put("itemPrice", selectPrice);
+		session.put("itemStock", selectStock);
+
 
 		session.put("id", id);
 
@@ -46,6 +52,16 @@ public class ItemUpdateAction extends ActionSupport implements SessionAware {
 	public void setId(int id){
 		this.id=id;
 	}
+
+
+
+	public List<BuyItemDTO> getList(){
+		return list;
+	}
+	public void setList(List<BuyItemDTO> list){
+		this.list=list;
+	}
+
 
 	@Override
 	public void setSession(Map<String,Object> session){

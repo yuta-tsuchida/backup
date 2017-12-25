@@ -70,6 +70,23 @@
 		</div>
 		<div>
 			<p>以下の商品情報を更新しました。</p>
+
+			<h3>before</h3>
+			<table border="1">
+				<tr>
+					<th>商品名</th>
+					<th>値段</th>
+					<th>在庫</th>
+				</tr>
+				<tr>
+					<td><s:property value="session.itemName"/></td>
+					<td><s:property value="session.itemPrice"/><span>円</span></td>
+					<td><s:property value="session.item_stock"/><span>個</span></td>
+				</tr>
+
+			</table>
+
+			<h3>after</h3>
 			<table border="1">
 				<tr>
 					<th>商品名</th>

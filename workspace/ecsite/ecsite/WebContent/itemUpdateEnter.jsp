@@ -71,21 +71,24 @@
 		<div>
 			<h3>更新する商品情報を入力してください。</h3>
 			<s:form action="ItemUpdateEnterAction">
+			<s:iterator value="list">
 				<tr>
 					<td>商品名：</td>
-					<td><s:textfield name="item_name" value="<s:property value='#session.itemName'/>"/></td>
+					<td><input type="text" name="item_name" value="<s:property value='itemName'/>"></td>
 				</tr>
 				<tr>
 					<td>値段：</td>
-					<td><s:textfield name="item_price" value="<s:property value='#session.itemPrice'/>"/></td>
+					<td><input type="text" name="item_price" value="<s:property value='itemPrice'/>"></td>
 				</tr>
 				<tr>
 					<td>在庫：</td>
-					<td><s:textfield name="item_stock" value="<s:property value='#session.itemStock'/>"/></td>
+					<td><input type="text" name="item_stock" value="<s:property value='item_stock'/>"></td>
 				</tr>
+			</s:iterator>
 				<tr>
 					<td><s:submit value="更新"/></td>
 				</tr>
+
 			</s:form>
 			<div>
 				<a href='<s:url action="HomeAction"/>'>管理画面へ</a>

@@ -12,13 +12,13 @@ public class ItemDeleteCompleteDAO {
 
 	private Connection con=db.getConnection();
 
-	private String sql="DELETE FROM item_info_transaction WHERE id = ?";
+	private String sql="DELETE FROM item_info_transaction WHERE item_name = ?";
 
-	public void itemDeleteInfo(int id) throws SQLException{
+	public void itemDeleteInfo(String name) throws SQLException{
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, name);
 			ps.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

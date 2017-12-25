@@ -71,26 +71,16 @@
 
 		<div>
 			<p>以下の商品を削除しますか？</p>
-			<table border="1">
-				<tr>
-					<th>ID</th>
-					<th>商品名</th>
-					<th>値段</th>
-					<th>在庫</th>
-				</tr>
 
-				<s:iterator value="itemDeleteList">
-				<tr>
-					<td><s:property value="id"/></td>
-					<td><s:property value="itemName"/></td>
-					<td><s:property value="itemPrice"/><span>円</span></td>
-					<td><s:property value="item_stock"/><span>個</span></td>
-				</tr>
-				</s:iterator>
 				<s:form action="ItemDeleteCompleteAction">
+				<s:iterator value="itemDeleteList">
+					<tr>
+						<td><s:property value="itemName"/></td>
+					</tr>
+				</s:iterator>
 					<s:submit value="削除"/>
 				</s:form>
-			</table>
+
 			<div>
 				<a href='<s:url action="GoItemDeleteAction"/>'>戻る</a>
 			</div>

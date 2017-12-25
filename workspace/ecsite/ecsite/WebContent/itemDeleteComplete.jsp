@@ -70,7 +70,7 @@
 		</div>
 
 		<div>
-			<s:property value="session.idListSize"/><span>件削除されました。</span>
+			<s:property value="session.itemDeleteListSize"/><span>件削除されました。</span>
 		</div>
 		<div>
 			<a href='<s:url action="GoHomeAction"/>'>Home</a>

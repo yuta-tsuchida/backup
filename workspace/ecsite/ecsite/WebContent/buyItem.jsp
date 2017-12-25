@@ -47,7 +47,7 @@
 
 		#main {
 		   width: 100%;
-		   height: 1000px;
+		   height: 1800px;
 		   text-align: center;
 		}
 
@@ -73,14 +73,15 @@
 		<s:form action="BuyItemAction">
 			<table>
 				<s:iterator value="buyItemDTOList">
+
 				<tr>
 					<td>
-						<span>商品名</span>
-					</td>
-					<td>
-						<s:property value="itemName" /><br>
+						<h3><s:property value="itemName"/></h3>
 					</td>
 				</tr>
+
+
+
 				<tr>
 					<td>
 						<span>値段</span>
@@ -123,6 +124,11 @@
 							<option value="0" selected="selected">0</option>
 						</select>
 					</s:else>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
 					</td>
 				</tr>
 				</s:iterator>

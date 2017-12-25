@@ -11,35 +11,35 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ItemDeleteAction extends ActionSupport implements SessionAware {
 
-	private List<String> idList;
-
-	public Map<String,Object> session;
+	private List<String> name;
 
 	private ArrayList<BuyItemDTO> itemDeleteList=new ArrayList<>();
 
-	@SuppressWarnings("unchecked")
+	public Map<String,Object> session;
+
+
+
+	//@SuppressWarnings("unchecked")
 	public String execute(){
 
-		System.out.println(idList);
-		System.out.println(idList.size());
+		System.out.println(name);
+		System.out.println(name.size());
 
-		session.put("idList", idList);
-		session.put("idListSize", idList.size());
+		session.put("name", name);
+		session.put("itemDeleteListSize", name.size());
 
-		for(int i=0; i<idList.size(); i++){
-			List<BuyItemDTO> list=(ArrayList<BuyItemDTO>) session.get("buyItemDTOList");
-			int id=Integer.parseInt(idList.get(i));
-			String itemName=list.get(id - 1).getItemName();
-			String itemPrice=list.get(id - 1).getItemPrice();
-			int itemStock=list.get(id - 1).getItem_stock();
+
+		for(int i=0; i<name.size(); i++){
+
+			String itemName=name.get(i);
+
 
 			System.out.println(itemName);
 
 			BuyItemDTO dto=new BuyItemDTO();
-			dto.setId(id);
+
 			dto.setItemName(itemName);
-			dto.setItemPrice(itemPrice);
-			dto.setItem_stock(itemStock);
+
 			itemDeleteList.add(dto);
 			session.put("itemDeleteList", itemDeleteList);
 		}
@@ -49,12 +49,12 @@ public class ItemDeleteAction extends ActionSupport implements SessionAware {
 		return result;
 	}
 
-	public List<String> getId(){
-		return idList;
+	public List<String> getName(){
+		return name;
 	}
 
-	public void setId(List<String> idList){
-		this.idList=idList;
+	public void setName(List<String> name){
+		this.name=name;
 	}
 
 	public ArrayList<BuyItemDTO> getItemDeleteList(){
@@ -63,6 +63,7 @@ public class ItemDeleteAction extends ActionSupport implements SessionAware {
 	public void setItemDeleteList(ArrayList<BuyItemDTO> itemDeleteList){
 		this.itemDeleteList=itemDeleteList;
 	}
+
 
 	@Override
 	public void setSession(Map<String,Object> session){

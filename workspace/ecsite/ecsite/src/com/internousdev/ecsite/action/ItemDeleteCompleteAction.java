@@ -17,14 +17,14 @@ public class ItemDeleteCompleteAction extends ActionSupport implements SessionAw
 	public String execute() throws SQLException{
 
 		@SuppressWarnings("unchecked")
-		List<String> id=(List<String>) session.get("idList");
-		for(int i=0; i<id.size(); i++){
+		List<String> name=(List<String>) session.get("name");
+		for(int i=0; i<name.size(); i++){
 			@SuppressWarnings("unchecked")
 			List<BuyItemDTO> list=(List<BuyItemDTO>) session.get("itemDeleteList");
-			int itemId=list.get(i).getId();
+			String itemName=list.get(i).getItemName();
 
 			ItemDeleteCompleteDAO dao=new ItemDeleteCompleteDAO();
-			dao.itemDeleteInfo(itemId);
+			dao.itemDeleteInfo(itemName);
 		}
 		String result=SUCCESS;
 		return result;

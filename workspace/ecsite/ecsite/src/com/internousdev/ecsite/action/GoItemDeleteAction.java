@@ -18,6 +18,7 @@ public class GoItemDeleteAction extends ActionSupport implements SessionAware {
 	public String execute(){
 
 		buyItemDTOList=(ArrayList<BuyItemDTO>) session.get("buyItemDTOList");
+		//session.put("buyItemDTOList", buyItemDTOList);
 
 		String result=SUCCESS;
 		return result;

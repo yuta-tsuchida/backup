@@ -74,8 +74,7 @@
 					<tr>
 
 						<td><s:property value="itemName"/></td>
-
-						<td><input type="checkbox" name="id" value="<s:property value='id'/>"></td>
+						<td><input type="checkbox" name="name" value="<s:property value='itemName'/>"></td>
 					</tr>
 					<tr>
 						<td><br></td>

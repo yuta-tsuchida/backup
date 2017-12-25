@@ -1,6 +1,6 @@
 package com.internousdev.ecsite.action;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -12,22 +12,23 @@ public class GoItemUpdateAction extends ActionSupport implements SessionAware {
 
 	public Map<String,Object> session;
 
-	private ArrayList<BuyItemDTO> buyItemDTOList=new ArrayList<>();
+	private List<BuyItemDTO> buyItemDTOList;
 
 	@SuppressWarnings("unchecked")
 	public String execute(){
 
-		buyItemDTOList=(ArrayList<BuyItemDTO>) session.get("buyItemDTOList");
+		buyItemDTOList=(List<BuyItemDTO>) session.get("buyItemDTOList");
+		//session.put("buyItemDTOList", buyItemDTOList);
 
 		String result=SUCCESS;
 		return result;
 	}
 
-	public ArrayList<BuyItemDTO> getBuyItemDTOList(){
+	public List<BuyItemDTO> getBuyItemDTOList(){
 		return buyItemDTOList;
 	}
 
-	public void setBuyItemDTOList(ArrayList<BuyItemDTO> buyItemDTOList){
+	public void setBuyItemDTOList(List<BuyItemDTO> buyItemDTOList){
 		this.buyItemDTOList=buyItemDTOList;
 	}
 
