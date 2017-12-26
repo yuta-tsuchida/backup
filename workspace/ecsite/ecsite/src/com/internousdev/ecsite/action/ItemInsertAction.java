@@ -27,6 +27,11 @@ public class ItemInsertAction extends ActionSupport implements SessionAware {
 
 	public String execute() throws SQLException{
 
+		String result=ERROR;
+		/**
+		 * @return 文字列が空白でなければsuccess、どれか空白の時errorを返す。
+		 */
+		if(itemName.length() != 0 && itemPrice.length() != 0 && itemStock.length() != 0){
 		dto=dao.itemInsertInfo(itemName, itemPrice, itemStock);
 		session.put("ItemInsert", dto);
 		session.put("itemName", itemName);
@@ -34,7 +39,9 @@ public class ItemInsertAction extends ActionSupport implements SessionAware {
 		session.put("itemStock", itemStock);
 		session.put("insertDate", dateUtil.getDate());
 
-		String result=SUCCESS;
+		 result=SUCCESS;
+		return result;
+		}
 		return result;
 	}
 

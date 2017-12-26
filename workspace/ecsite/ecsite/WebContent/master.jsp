@@ -46,7 +46,7 @@
 
 		#main {
 		   width: 100%;
-		   height: 1100px;
+		   height: 1500px;
 		   text-align: center;
 		}
 
@@ -80,10 +80,7 @@
 					<s:iterator value="buyItemDTOList">
 						<tr>
 							<td>
-								<span>商品名</span>
-							</td>
-							<td>
-								<s:property value="itemName"/>
+								<h3><s:property value="itemName"/></h3>
 							</td>
 						</tr>
 

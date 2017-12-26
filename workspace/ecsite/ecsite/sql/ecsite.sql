@@ -1,7 +1,7 @@
 drop database if exists ecsite;
 
-create database if not exists ecsite;
-use ecsite;
+create database if not exists ecsite_tsuchida;
+use ecsite_tsuchida;
 
 drop table if exists login_user_transaction;
 
@@ -10,6 +10,7 @@ id int not null primary key auto_increment,
 login_id varchar(16) unique,
 login_pass varchar(16),
 user_name varchar(50),
+user_address varchar(50),
 insert_date datetime,
 updated_date datetime
 );
@@ -52,4 +53,4 @@ INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES
 ("glue",100,50),
 ("ruler",120,50);
 
-INSERT INTO login_user_transaction(login_id, login_pass, user_name) VALUES("internous", "internous01", "test"),("taro","123","master");
+INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_address) VALUES("jiro", "456", "test","saitama"),("taro","123","master","tokyo");

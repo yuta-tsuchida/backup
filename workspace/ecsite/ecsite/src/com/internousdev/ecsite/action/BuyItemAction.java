@@ -82,6 +82,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 			 * 引数がString型のため、toStringでString型に変換する。->int型で保管したいのでparseIntでintに変換している。
 			 */
 
+
 			if(intCount != 0){
 
 			buyItemDTO.setId((int) session.get("id"));
@@ -115,6 +116,16 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		}
 		/* ここまで繰り返す */
 			session.put("list",buyItemDTOList);
+		}
+
+		//複数購入の場合の合計金額取得
+		if(buyItemDTOList.size()>1){
+			int totalPrice=0;
+			for(int a = 0; a<buyItemDTOList.size(); a++){
+				totalPrice=totalPrice + buyItemDTOList.get(a).getTotal_price();
+			}
+			System.out.println(totalPrice);
+			session.put("totalPrice", totalPrice);
 		}
 
 		return result;

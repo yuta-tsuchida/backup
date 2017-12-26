@@ -25,6 +25,9 @@ public class ItemUpdateEnterAction extends ActionSupport implements SessionAware
 
 	public String execute() throws SQLException{
 
+		//String result = ERROR;
+
+		//if(item_name.length() != 0 && item_price.length() != 0 && item_stock.length() !=0){
 		int id=(int) session.get("id");
 
 		dao.itemUpdateInfo(item_name, item_price, item_stock, id);
@@ -34,8 +37,10 @@ public class ItemUpdateEnterAction extends ActionSupport implements SessionAware
 		session.put("item_stock", item_stock);
 		session.put("update_date", dateUtil.getDate());
 
-		String result=SUCCESS;
+		String result = SUCCESS;
 		return result;
+		//}
+		//return result;
 	}
 
 

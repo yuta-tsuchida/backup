@@ -47,7 +47,7 @@
 
 		#main {
 		   width: 100%;
-		   height: 1800px;
+		   height: 2300px;
 		   text-align: center;
 		}
 

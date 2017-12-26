@@ -72,7 +72,6 @@
 			<s:form action="ItemUpdateAction">
 				<s:iterator value="buyItemDTOList">
 					<tr>
-						<td><span>商品名</span></td>
 						<td><s:property value="itemName"/></td>
 						<td><input type="radio" name="id" value="<s:property value='id'/>"></td>
 					</tr>

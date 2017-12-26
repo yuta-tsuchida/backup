@@ -76,13 +76,16 @@
 			<h3>追加する商品情報を入力してください。</h3>
 			<s:form action="ItemInsertAction">
 				<tr>
-					<td>商品名：<s:textfield name="itemName"/></td>
+					<td>商品名：</td>
+					<td><input type="text" name="itemName"></td>
 				</tr>
 				<tr>
-					<td>商品価格：<s:textfield name="itemPrice"/></td>
+					<td>商品価格：</td>
+					<td><input type="text" name="itemPrice"></td>
 				</tr>
 				<tr>
-					<td>在庫：<s:textfield name="itemStock"/></td>
+					<td>在庫：</td>
+					<td><input type="text" name="itemStock"></td>
 				</tr>
 				<tr>
 					<td><s:submit value="追加"/></td>

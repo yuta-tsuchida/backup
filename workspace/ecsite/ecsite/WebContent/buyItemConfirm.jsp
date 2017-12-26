@@ -49,7 +49,7 @@
 
 		#main {
 		   width: 100%;
-		   height: 500px;
+		   height: 800px;
 		   text-align: center;
 		}
 
@@ -105,7 +105,19 @@
 				</tr>
 				</s:if>
 			</s:iterator>
-
+				<s:if test="buyItemDTOList.size() >1">
+				<tr>
+					<td><h3>合計：</h3></td>
+					<td>
+						<h3><s:property value="session.totalPrice"/><span>円</span></h3>
+					</td>
+				</tr>
+				</s:if>
+				<tr>
+					<td>
+						<br>
+					</td>
+				</tr>
 				<tr>
 					<td><input type="button" value="戻る" onclick="submitAction('HomeAction')" /></td>
 					<td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" /></td>

@@ -81,7 +81,7 @@
 				<tr>
 					<td><s:property value="session.itemName"/></td>
 					<td><s:property value="session.itemPrice"/><span>円</span></td>
-					<td><s:property value="session.item_stock"/><span>個</span></td>
+					<td><s:property value="session.itemStock"/><span>個</span></td>
 				</tr>
 
 			</table>
@@ -92,15 +92,18 @@
 					<th>商品名</th>
 					<th>値段</th>
 					<th>在庫</th>
-					<th>更新日</th>
 				</tr>
 				<tr>
 					<td><s:property value="session.item_name"/></td>
 					<td><s:property value="session.item_price"/><span>円</span></td>
 					<td><s:property value="session.item_stock"/><span>個</span></td>
-					<td><s:property value="session.update_date"/></td>
 				</tr>
 			</table>
+			<s:form>
+				<tr>
+					<td><span>更新日：</span><s:property value="session.update_date"/></td>
+				</tr>
+			</s:form>
 			<div>
 				<a href='<s:url action="GoHomeAction"/>'>Home</a>
 			</div>

@@ -8,6 +8,8 @@ public class LoginDTO {
 
 	private String userName;
 
+	private String userAddress;
+
 	private boolean loginFlg = false;
 
 	private boolean loginMaster = false;
@@ -50,5 +52,13 @@ public class LoginDTO {
 
 	public void setLoginMaster(boolean loginMaster){
 		this.loginMaster=loginMaster;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 }
