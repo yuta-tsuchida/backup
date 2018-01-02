@@ -11,6 +11,8 @@ login_id varchar(16) unique,
 login_pass varchar(16),
 user_name varchar(50),
 user_address varchar(50),
+user_sex varchar(50),
+user_tell varchar(16),
 insert_date datetime,
 updated_date datetime
 );
@@ -53,4 +55,4 @@ INSERT INTO item_info_transaction(item_name, item_price, item_stock) VALUES
 ("glue",100,50),
 ("ruler",120,50);
 
-INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_address) VALUES("jiro", "456", "test","saitama"),("taro","123","master","tokyo");
+INSERT INTO login_user_transaction(login_id, login_pass, user_name, user_address, user_sex, user_tell) VALUES("jiro", "456", "test","saitama","男","09000000000"),("taro","123","master","tokyo","男","08000000000");

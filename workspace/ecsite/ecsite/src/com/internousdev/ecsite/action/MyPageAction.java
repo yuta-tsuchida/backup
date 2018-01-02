@@ -56,6 +56,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		// 商品履歴を削除しない場合
 		if(deleteFlg == null) {
 
+			if(buyItemDTOList != null){
 			for(int i=0; i<buyItemDTOList.size(); i++){
 
 			String user_master_id = session.get("login_user_id").toString();
@@ -65,6 +66,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 			myPageList= myPageDAO.getMyPageUserInfo(user_master_id);
 
+			}
 
 			}
 
@@ -92,7 +94,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		@SuppressWarnings("unchecked")
 		List<BuyItemDTO> buyItemDTOList=(List<BuyItemDTO>) session.get("list");
 
-		for(int i=0; i<buyItemDTOList.size(); i++){
+		//for(int i=0; i<buyItemDTOList.size(); i++){
 
 		String user_master_id = session.get("login_user_id").toString();
 
@@ -106,7 +108,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		} else if(res == 0) {
 			setMessage("商品情報の削除に失敗しました。");
 		}
-		}
+		//}
 
 	}
 

@@ -103,6 +103,10 @@
 						<br>
 					</td>
 				</tr>
+				<tr>
+					<td>お届け先</td>
+					<td><s:property value="session.userAddress"/></td>
+				</tr>
 				</s:if>
 			</s:iterator>
 				<s:if test="buyItemDTOList.size() >1">

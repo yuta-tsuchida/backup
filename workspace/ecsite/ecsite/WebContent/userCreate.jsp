@@ -47,7 +47,7 @@
 
 		#main {
 		   width: 100%;
-		   height: 500px;
+		   height: 800px;
 		   text-align: center;
 		}
 
@@ -70,13 +70,13 @@
 		</div>
 		<div>
 			<s:if test="errorMassage != ''">
-				<s:property value="errorMassage" escape="false" />
+				<h3><s:property value="errorMassage" escape="false" /></h3>
 			</s:if>
 			<table>
 			<s:form action="UserCreateConfirmAction">
 				<tr>
 					<td>
-						<label>ログインID:</label>
+						<label>ログインID (メールアドレス):</label>
 					</td>
 					<td>
 						<input type="text" name="loginUserId" value="" />
@@ -84,7 +84,20 @@
 				</tr>
 				<tr>
 					<td>
-						<label>ログインPASS:</label>
+						<label>確認用：</label>
+					</td>
+					<td>
+						<input type="text" name="checkLoginId" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>ログインPASS (パスワード):</label>
 					</td>
 					<td>
 						<input type="text" name="loginPassword" value="" />
@@ -92,10 +105,84 @@
 				</tr>
 				<tr>
 					<td>
-						<label>ユーザー名:</label>
+						<label>確認用：</label>
+					</td>
+					<td>
+						<input type="text" name="checkPassword" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>ユーザー名 (氏名):</label>
 					</td>
 					<td>
 						<input type="text" name="userName" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>性別：</label>
+					</td>
+					<td>
+						<input type="radio" name="sex" value="男" checked="checked">男
+						<input type="radio" name="sex" value="女">女
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>住所</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>都道府県：</label>
+					</td>
+					<td>
+						<input type="text" name="userAddress1" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>市町村：</label>
+					</td>
+					<td>
+						<input type="text" name="userAddress2" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>番地、マンション名：</label>
+					</td>
+					<td>
+						<input type="text" name="userAddress3" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>電話番号：</label>
+					</td>
+					<td>
+						<input type="text" name="tell" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<br>
 					</td>
 				</tr>
 				<s:submit value="登録"/>
