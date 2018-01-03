@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,8 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<meta charset="utf-8">
-	<title>BuyItem画面</title>
+
+<title>BuyItem画面</title>
 	<style type="text/css">
 	/* ========TAG LAYOUT======== */
 		body {
@@ -72,22 +72,9 @@
 			<p>BuyItem</p>
 		</div>
 		<div>
-		<s:form action="ItemSearchAction">
-
-			<tr>
-				<td>
-					<s:textfield name="searchWord" value=""/>
-				</td>
-				<td>
-					<s:submit value="検索"/>
-				</td>
-			</tr>
-
-		</s:form>
-
 		<s:form action="BuyItemAction">
 			<table>
-				<s:iterator value="buyItemDTOList">
+				<s:iterator value="searchList">
 
 				<tr>
 					<td>
