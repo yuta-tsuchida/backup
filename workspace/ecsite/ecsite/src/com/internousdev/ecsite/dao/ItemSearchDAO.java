@@ -17,6 +17,9 @@ public class ItemSearchDAO {
 
 	private List<BuyItemDTO> searchList = new ArrayList<BuyItemDTO>();
 
+
+
+
 	public List<BuyItemDTO> getItemInfo(String searchWord){
 
 		String sql = "SELECT * FROM item_info_transaction";
@@ -38,6 +41,7 @@ public class ItemSearchDAO {
 					searchList.add(dto);
 				}
 			}
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -48,4 +52,6 @@ public class ItemSearchDAO {
 	public List<BuyItemDTO> getBuyItemDTO(){
 		return searchList;
 	}
+
+
 }

@@ -38,13 +38,11 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 
 
 			int id=buyItemDTOList.get(i).getId();
-			//String id=String.valueOf(a);
 
 			int b=buyItemDTOList.get(i).getTotal_price();
 			String total_price=String.valueOf(b);
 
 			int count=buyItemDTOList.get(i).getCount();
-			//String count=String.valueOf(c);
 
 
 			int item_stock= a - count;

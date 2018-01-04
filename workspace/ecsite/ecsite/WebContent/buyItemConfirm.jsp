@@ -103,12 +103,12 @@
 						<br>
 					</td>
 				</tr>
+				</s:if>
+			</s:iterator>
 				<tr>
 					<td>お届け先</td>
 					<td><s:property value="session.userAddress"/></td>
 				</tr>
-				</s:if>
-			</s:iterator>
 				<s:if test="buyItemDTOList.size() >1">
 				<tr>
 					<td><h3>合計：</h3></td>

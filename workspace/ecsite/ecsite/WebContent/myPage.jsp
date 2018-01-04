@@ -74,6 +74,26 @@
 			<p>MyPage</p>
 		</div>
 		<div>
+			<s:form>
+				<tr>
+					<td>
+						ユーザー名：
+					</td>
+					<td>
+						<s:property value="session.userName" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						お届け先住所：
+					</td>
+					<td>
+						<s:property value="session.userAddress" />
+					</td>
+				</tr>
+			</s:form>
+		</div>
+		<div>
 		<s:if test="myPageList == null">
 			<h3>ご購入情報はありません。</h3>
 		</s:if>

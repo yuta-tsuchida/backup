@@ -38,7 +38,7 @@ public class ItemUpdateAction extends ActionSupport implements SessionAware {
 		session.put("itemStock", selectStock);
 
 
-		session.put("id", id);
+		session.put("updateId", id);
 
 		System.out.println(id);
 

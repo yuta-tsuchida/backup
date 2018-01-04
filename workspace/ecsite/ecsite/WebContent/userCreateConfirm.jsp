@@ -79,7 +79,7 @@
 				<s:form action="UserCreateCompleteAction">
 					<tr id="box">
 						<td>
-							<label>ログインID:</label>
+							<label>ログインID：</label>
 						</td>
 						<td>
 							<s:property value="loginUserId" escape="false" />
@@ -87,7 +87,7 @@
 					</tr>
 					<tr id="box">
 						<td>
-							<label>ログインPASS:</label>
+							<label>ログインPASS：</label>
 						</td>
 						<td>
 							<s:property value="loginPassword" escape="false" />
@@ -95,10 +95,34 @@
 					</tr>
 					<tr id="box">
 						<td>
-							<label>ユーザー名:</label>
+							<label>ユーザー名：</label>
 						</td>
 						<td>
 							<s:property value="userName" escape="false" />
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>性別：</label>
+						</td>
+						<td>
+							<s:property value="sex" escape="false"/>
+						</td>
+					</tr>
+					<tr id="box">
+						<td>
+							<label>住所：</label>
+						</td>
+						<td>
+							<s:property value="session.userAddress" escape="false"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>電話番号：</label>
+						</td>
+						<td>
+							<s:property value="tell" escape="false"/>
 						</td>
 					</tr>
 					<tr>

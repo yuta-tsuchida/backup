@@ -94,7 +94,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		@SuppressWarnings("unchecked")
 		List<BuyItemDTO> buyItemDTOList=(List<BuyItemDTO>) session.get("list");
 
-		//for(int i=0; i<buyItemDTOList.size(); i++){
+
 
 		String user_master_id = session.get("login_user_id").toString();
 
@@ -108,7 +108,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		} else if(res == 0) {
 			setMessage("商品情報の削除に失敗しました。");
 		}
-		//}
+
 
 	}
 

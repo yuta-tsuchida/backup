@@ -75,23 +75,27 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.put("buyItemDTOList", buyItemDTOList);
 			session.put("masterId",loginUserId);
 			result = "master";
-			return result;
+
 		}
-		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
-			result = SUCCESS;
 
-			// アイテム情報を取得
+		if(result != "master"){
+			if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
+				result = SUCCESS;
 
-			buyItemDTOList=buyItemDAO.getBuyItemInfo();
+				// アイテム情報を取得
 
-			// BuyItemActionで利用したいから"buyItemDTOList"という鍵の名前でbuyItemDTOListのデータを保管する。
-			session.put("buyItemDTOList", buyItemDTOList);
-			session.put("id", buyItemDTO.getId());
-			session.put("login_user_id",loginDTO.getLoginId());
-			session.put("userAddress", loginDTO.getUserAddress());
+				buyItemDTOList=buyItemDAO.getBuyItemInfo();
+
+				// BuyItemActionで利用したいから"buyItemDTOList"という鍵の名前でbuyItemDTOListのデータを保管する。
+				session.put("buyItemDTOList", buyItemDTOList);
+				session.put("id", buyItemDTO.getId());
+				session.put("login_user_id",loginDTO.getLoginId());
+				session.put("userName", loginDTO.getUserName());
+				session.put("userAddress", loginDTO.getUserAddress());
 
 
-			return result;
+
+			}
 		}
 
 

@@ -1,5 +1,6 @@
 package com.internousdev.ecsite.action;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,12 +17,14 @@ public class ItemSearchAction extends ActionSupport implements SessionAware {
 	 */
 	private String searchWord;
 
+	private String message;
+
 	public Map<String, Object> session;
 
 	/**
 	 * 検索結果格納List
 	 */
-	private List<BuyItemDTO> buyItemDTOList;
+	private List<BuyItemDTO> buyItemDTOList = new ArrayList<BuyItemDTO>();
 
 	/**
 	 * 検索結果取得
@@ -43,18 +46,24 @@ public class ItemSearchAction extends ActionSupport implements SessionAware {
 
 			result = ERROR;
 			buyItemDTOList =(List<BuyItemDTO>) session.get("buyItemDTOList");
+			setMessage("該当する商品が見つかりませんでした。");
 
 		}else{
 
 			buyItemDTOList = itemSearchDAO.getItemInfo(searchWord);
 
-			if(buyItemDTOList != null){
+
+			if(buyItemDTOList.size() > 0){
 				session.put("buyItemDTOList", buyItemDTOList);
+				int itemCount = buyItemDTOList.size();
+				String count = Integer.toString(itemCount);
+				setMessage(count + "件の商品が見つかりました。");
 
 				result = SUCCESS;
 			}else{
 				result = ERROR;
 				buyItemDTOList =(List<BuyItemDTO>) session.get("buyItemDTOList");
+				setMessage("該当する商品が見つかりませんでした。");
 			}
 		}
 
@@ -68,6 +77,15 @@ public class ItemSearchAction extends ActionSupport implements SessionAware {
 
 	public void setSearchWord(String searchWord) {
 		this.searchWord = searchWord;
+	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 
