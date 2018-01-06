@@ -30,9 +30,14 @@ public class UserCreateConfirmDAO {
 				String loginId = resultSet.getString("login_id");
 				String password = resultSet.getString("login_pass");
 
-				if(loginId.equals(loginUserId) && password.equals(loginPassword)){
-					result = false;
-					return result;
+				if(loginId.equals(loginUserId) || password.equals(loginPassword)){
+
+					if(loginId.equals(loginUserId)){
+						result = false;
+						return result;
+					}else{
+						result = true;
+					}
 
 				}else{
 					result = true;
