@@ -2,6 +2,7 @@ package com.internousdev.ecsite.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.internousdev.ecsite.util.DBConnector;
 import com.internousdev.ecsite.util.DateUtil;
@@ -14,9 +15,13 @@ public class UserUpdateCompleteDAO {
 
 	private DateUtil dateUtil = new DateUtil();
 
-	private String sql ="UPDATE login_user_transaction SET login_id = ?, login_pass = ?, user_name = ?, user_address = ?, user_address1 = ?, user_address2 = ?, user_address3 = ?, user_sex = ?, user_tell = ?, update_date = ? WHERE login_id = ?";
+	private String sql ="UPDATE login_user_transaction SET login_id = ?, login_pass = ?, user_name = ?, user_address = ?, user_address1 = ?, user_address2 = ?, user_address3 = ?, user_sex = ?, user_tell = ?, updated_date = ? WHERE id = ?";
 
-	public void userUpdateInfo(String login_id, String login_pass, String user_name, String user_address, String user_address1, String user_address2, String user_address3, String user_sex, String user_tell, String defaultLoginId){
+	public boolean userUpdateInfo(String login_id, String login_pass, String user_name,
+			String user_address, String user_address1, String user_address2, String user_address3,
+			String user_sex, String user_tell, String defaultLoginId) throws SQLException{
+
+		boolean result = false;
 
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -32,10 +37,18 @@ public class UserUpdateCompleteDAO {
 			preparedStatement.setString(10, dateUtil.getDate());
 			preparedStatement.setString(11, defaultLoginId);
 
-			preparedStatement.executeUpdate();
+			int checkUpdate = preparedStatement.executeUpdate();
+
+			if(checkUpdate > 0){
+				result = true;
+			}
 		}catch(Exception e){
 			e.printStackTrace();
+		}finally{
+			connection.close();
 		}
+		return result;
+
 
 	}
 }

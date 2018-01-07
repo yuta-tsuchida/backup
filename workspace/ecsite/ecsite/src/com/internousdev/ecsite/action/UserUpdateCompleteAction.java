@@ -1,10 +1,12 @@
 package com.internousdev.ecsite.action;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.ecsite.dao.UserUpdateCompleteDAO;
+import com.internousdev.ecsite.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserUpdateCompleteAction extends ActionSupport implements SessionAware {
@@ -13,9 +15,16 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 
 	private UserUpdateCompleteDAO userUpdateCompleteDAO = new UserUpdateCompleteDAO();
 
-	public String execute(){
+	private LoginDTO loginDTO = new LoginDTO();
 
-		userUpdateCompleteDAO.userUpdateInfo(session.get("loginUserId").toString(),
+	public String execute() throws SQLException{
+
+		String result = ERROR;
+
+		String name =session.get("sex").toString();
+		System.out.println(name);
+
+		boolean checkUpdate =userUpdateCompleteDAO.userUpdateInfo (session.get("loginUserId").toString(),
 				session.get("loginPassword").toString(),
 				session.get("userName").toString(),
 				session.get("userAddress").toString(),
@@ -24,9 +33,11 @@ public class UserUpdateCompleteAction extends ActionSupport implements SessionAw
 				session.get("userAddress3").toString(),
 				session.get("sex").toString(),
 				session.get("tell").toString(),
-				session.get("defaultLoginId").toString());
+				((LoginDTO) session.get("loginUser")).getUserNumber().toString());
+		if(checkUpdate){
+			result = SUCCESS;
+		}
 
-		String result = SUCCESS;
 		return result;
 	}
 

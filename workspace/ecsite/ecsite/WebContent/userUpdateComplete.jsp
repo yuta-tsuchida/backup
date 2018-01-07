@@ -66,13 +66,13 @@
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>UserUpdateConfirm</p>
+			<p>UserUpdateComplete</p>
 		</div>
 		<div><br>
 			<h3>ユーザー情報を変更しました。</h3>
 
 			<div>
-				<a href='<s:url action="HomeAction" />'>ログインへ</a>
+				<a href='<s:url action="LogoutAction" />'>ログインへ</a>
 			</div>
 		</div>
 	</div>

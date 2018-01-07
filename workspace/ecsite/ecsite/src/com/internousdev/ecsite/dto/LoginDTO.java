@@ -20,6 +20,8 @@ public class LoginDTO {
 
 	private String userTell;
 
+	private String userNumber;
+
 	private boolean loginFlg = false;
 
 	private boolean loginMaster = false;
@@ -110,6 +112,14 @@ public class LoginDTO {
 
 	public void setUserTell(String userTell) {
 		this.userTell = userTell;
+	}
+
+	public String getUserNumber() {
+		return userNumber;
+	}
+
+	public void setUserNumber(String userNumber) {
+		this.userNumber = userNumber;
 	}
 
 

@@ -68,6 +68,11 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 			}
 
+
+			}else{
+				String user_master_id = session.get("login_user_id").toString();
+				MyPageDAO myPageDAO = new MyPageDAO();
+				myPageList = myPageDAO.getMyPageUserInfo(user_master_id);
 			}
 
 
